@@ -9,7 +9,7 @@ font = cv2.FONT_HERSHEY_COMPLEX
 color = [255, 255, 255]
 height = 320
 width = 640
-
+focal_length = 500
 class PiCam:
     def __init__(self):
         self.cam = picam()
@@ -49,14 +49,8 @@ for frame in camera.cam.capture_continuous(camera.raw_cap, format="bgr", use_vid
     if len(class_ids) != 0:
         for classId, confidence, box in zip(class_ids.flatten(), confidences.flatten(), boundary_boxes):
             cv2.rectangle(img, box, color=color, thickness=2)
-            cv2.putText(img,
-                        classNames[classId - 1].upper(),
-                        (box[0] + 10, box[1] + 30),
-                        font, 1, color, 2)
-            cv2.putText(img,
-                        str(round(confidence * 100, 2)),
-                        (box[0] + 200, box[1] + 30),
-                        font, 1, color, 2)
+            cv2.putText(img, classNames[classId - 1].upper(), (box[0] + 10, box[1] + 30), font, 1, color, 2)
+            cv2.putText(img, str(round(confidence * 100, 2)), (box[0] + 200, box[1] + 30), font, 1, color, 2)
 
     cv2.imshow("IEE3061 IoT", img)
     camera.raw_cap.truncate(0)
