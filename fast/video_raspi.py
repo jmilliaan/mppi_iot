@@ -1,5 +1,6 @@
 import cv2
 import matplotlib.pyplot as plt
+import time
 from picamera.array import PiRGBArray as pi_rgb
 from picamera import PiCamera as picam
 
