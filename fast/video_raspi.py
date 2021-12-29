@@ -17,6 +17,16 @@ class PiCam:
         time.sleep(0.1)
 
 
+def focal_length(measured_distance, real_width, width_in_rf_image):
+    foc_length = (width_in_rf_image * measured_distance) / real_width
+    return foc_length
+
+
+def distance_finder(foc_len, real_face_width, face_width_in_frame):
+    distance = (real_face_width * foc_len) / face_width_in_frame
+    return distance
+
+
 camera = PiCam()
 classFile = 'coco.names'
 with open(classFile, 'rt') as f:
