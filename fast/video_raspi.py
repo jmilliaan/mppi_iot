@@ -6,7 +6,8 @@ from picamera import PiCamera as picam
 confidence_threshold = 0.45  # Threshold to detect object
 font = cv2.FONT_HERSHEY_COMPLEX
 color = [255, 255, 255]
-
+height = 320
+width = 640
 
 class PiCam:
     def __init__(self):
