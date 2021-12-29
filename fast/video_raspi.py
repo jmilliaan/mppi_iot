@@ -59,10 +59,8 @@ for frame in camera.cam.capture_continuous(camera.raw_cap, format="bgr", use_vid
                         font, 1, color, 2)
 
     cv2.imshow("IEE3061 IoT", img)
-
+    camera.raw_cap.truncate(0)
     key = cv2.waitKey(1)
     if key == 27:
         break
-
-cap.release()
 cv2.destroyAllWindows()
