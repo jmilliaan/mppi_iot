@@ -14,7 +14,7 @@ class PiCam:
     def __init__(self):
         self.cam = picam()
         self.cam.resolution = (width, height)
-        self.cam.framerate = 10
+        self.cam.framerate = 30
         self.raw_cap = pi_rgb(picam, size=self.cam.resolution)
         time.sleep(0.1)
 
